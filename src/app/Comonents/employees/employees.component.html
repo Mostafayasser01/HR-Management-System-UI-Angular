@@ -1,0 +1,109 @@
+<section class="">
+
+  <div class="container-fuild bg-light rounded-3">
+
+    <div class="head-title p-3">
+      <div class="left">
+      </div>
+      <a [routerLink]="['/Dashboard',{outlets: {content:['Employees','0','edit']}}]" class="btn-download">
+        <i class="bi bi-person-plus-fill"></i>
+        <span class="text">Add Employee</span>
+      </a>
+    </div>
+    <div class="table-data">
+      <div class="order">
+        <div class="head">
+          <h3 class="text-primary">Recent Employees</h3>
+
+          <nav>
+            <!-- <form action="#"> -->
+            <div class="form-input">
+              <!-- <input type="search" [(ngModel)]="searchTerm" placeholder="Search..." (keyup)="showSuggestions()"> -->
+              <!-- <input type="text" class="form-control" id="name" [(ngModel)]="name" placeholder="Enter Employee's name"
+                  aria-label="Example text with button addon" aria-describedby="button-addon1" (keyup)="showSuggestions()"> -->
+
+              <!-- <button type="button" class="search-btn" (click)="showSuggestions()"><i class='bx bx-search'></i></button> -->
+              <!-- <select>
+                  <ng-container *ngFor="let Employee of Employees;">
+                    <option value={{Employee.name}}>{{Employee.name}}</option> >
+                    
+                </ng-container>
+                  </select> -->
+
+              <input list="browsers" id="myBrowser" name="myBrowser" class="form-control" placeholder="Search..."
+                [(ngModel)]="searchTerm" (keyup)="showSuggestions()" />
+              <datalist id="browsers">
+                <ng-container *ngFor="let Employee of Employees;">
+                  <option value={{Employee.name}}>{{Employee.name}}</option> >
+                </ng-container>
+
+              </datalist>
+              <!-- <div>
+                <ul>
+                  <li *ngFor="let suggestion of suggestions">{{ suggestion.name }}</li>
+                </ul>
+              </div> -->
+            </div>
+            <!-- </form> -->
+
+          </nav>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th hidden>Id</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Phone</th>
+              <th>Salary</th>
+              <th>BirthDate</th>
+              <th>Street</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>HireDate</th>
+              <th>Nationailty</th>
+              <th>Attend</th>
+              <th>Leave</th>
+              <th>Department</th>
+              <th>SSn</th>
+
+              <th>Actions</th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let Employee of Employees;">
+              <td hidden>{{Employee.Id}}</td>
+              <td>{{Employee.name}}</td>
+              <td>{{Employee.gender}}</td>
+              <td>{{Employee.phone}}</td>
+              <td>{{Employee.salary}}</td>
+              <td>{{Employee.birthDate}}</td>
+              <td>{{Employee.street}}</td>
+              <td>{{Employee.city}}</td>
+              <td>{{Employee.country}}</td>
+              <td>{{Employee.hireDate}}</td>
+              <td>{{Employee.nationality}}</td>
+              <td>{{Employee.attendTime}}</td>
+              <td>{{Employee.leaveTime}}</td>
+              <td>{{Employee.deptName}}</td>
+              <td>{{Employee.ssn}}</td>
+
+              <td>
+                <i [routerLink]="['/Dashboard',{outlets: {content:['Employees',Employee.id,'edit']}}]"
+                  class="fs-5 text-info mx-1 bi bi-pencil-square"></i>
+                <i (click)="deleteProductHandler(Employee.id)" class="fs-5 text-danger mx-1 bi bi-trash3"></i>
+
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>

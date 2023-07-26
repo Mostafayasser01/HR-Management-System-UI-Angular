@@ -1,0 +1,105 @@
+<section>
+    <div class="container-fuild ">
+        <div class="row">
+            <div class="table-data">
+                <div class="order ">
+                    <div class="head">
+                        <h3 class="text-primary">Add Admin</h3>
+                    </div>
+
+                    <form [formGroup]="adminForm" (submit)="addNew($event)" method="post"
+                        class="text-center d-flex justify-content-center row ">
+
+
+                        <!-----------------------------------   Name ----------------------------------->
+                        <div class="col-6 offset-1 mb-4">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" formControlName="fullName" name="name" class="form-control" placeholder="Enter Full Name">
+
+                            <!-- Name Validation-->
+                            <ng-container *ngIf="getName.touched">
+                                <div *ngIf="getName.hasError('required')" class="text-danger">Name is required</div>
+                                <div *ngIf="getName.hasError('pattern')" class="text-danger">Name should have at least
+                                    3 characters </div>
+                            </ng-container>
+
+                        </div>
+                        <!----------------------------------- User Name ------------------------------------->
+                        <div class="col-6 offset-1 mb-4">
+                            <label for="username" class="form-label">User Name:</label>
+                            <input type="text" id="username" formControlName="userName" name="username" placeholder="Enter Username"
+                                class="form-control">
+
+                            <!-- User Name Validation-->
+                            <ng-container *ngIf="getUsername.touched">
+                                <div *ngIf="getUsername.hasError('required')" class="text-danger">Username is required
+                                </div>
+                                <div *ngIf="getUsername.hasError('minlength')" class="text-danger">Username should have
+                                    at least 5 characters</div>
+                            </ng-container>
+
+                        </div>
+                        <!----------------------------------- Email ------------------------------------->
+                        <div class="col-6 offset-1 mb-4">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" formControlName="email" name="email" class="form-control" placeholder="Enter email">
+
+                            <!-- Email Validation-->
+                            <ng-container *ngIf="getEmail.touched">
+                                <div *ngIf="getEmail.hasError('required')" class="text-danger">Email is required</div>
+                                <div *ngIf="getEmail.hasError('pattern')" class="text-danger">Please enter a valid email
+                                    address</div>
+
+                            </ng-container>
+
+                        </div>
+                        <!----------------------------------- Password ------------------------------------->
+                        <div class="col-6 offset-1 mb-4">
+
+                            <label for="password" class="form-label">Password</label>
+
+                            <input type="password" id="password" name="password" formControlName="password" placeholder="Enter Password"
+                                class="form-control">
+
+                            <!-- Password Validation-->
+                            <ng-container *ngIf="getpassword.touched">
+                                <div *ngIf="getpassword.hasError('required')" class="text-danger">Password is required
+                                </div>
+                                <div *ngIf="getpassword.hasError('minlength')" class="text-danger">Password should have
+                                    at least 10 characters</div>
+                            </ng-container>
+
+                        </div>
+
+                        <!----------------------------------- Group ------------------------------------->
+
+                        <div class="col-6 offset-1 mb-4">
+                            <label for="group" class="form-label"> Group</label>
+
+
+                            <select name="group" formControlName="role" class="form-select" >
+                                <ng-container *ngFor="let Role of Roles;">
+                                    <option value={{Role.name}}>{{Role.name}}</option>
+                                </ng-container>
+
+                            </select>
+
+                            <!-- Group Validation -->
+                            <ng-container *ngIf="getGroup.touched">
+                                <div *ngIf="getGroup.hasError('required')" class="text-danger">Group is required</div>
+                            </ng-container>
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <button type="submit" class="btn btn-outline-primary mt-5 px-3">Submit</button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

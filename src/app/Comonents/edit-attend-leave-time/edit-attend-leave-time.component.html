@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row text-center bg-light rounded-3">
+        
+  <div class="table-data">
+    <div class="order">
+      <div class="head">
+        <h3 class="text-primary">Edit Attendance</h3>
+
+      </div>
+        <form [formGroup]="EditAttendance" (submit)="EditAttend($event)" >
+            <div class="row">
+                <div class="col-10 offset-1 mb-3">
+                    
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Employee Name : <span class="text-danger">{{Attendance.empName}}</span></label><br>
+                          <label for="name" class="form-label">Department Name : <span class="text-danger">{{Attendance.deptName}}</span></label><br>
+                        </div>
+
+                        
+                <div class="row">
+                    <div class="col-8 offset-2">
+                        <div class="mb-4">
+                            <label for="date" class="form-label">Date</label>
+                            <input formControlName="date"  type="date" min="2008-01-01" max="2023-12-01" class="form-control" id="HireDate">
+                            <ng-container *ngIf="getHireDate.touched">
+                                <div *ngIf="getHireDate.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    HireDate is required
+                                </div>
+                                <div *ngIf="getHireDate.hasError('validateDateRange')" class="alert alert-danger mt-2" id="errorName">
+                                    HireDate must be more than 01/01/2008
+                                </div>
+                                
+                            </ng-container>
+                        
+                        </div>
+                           
+                    </div>
+
+                    <div class="col-8 offset-2">
+                        <div class="mb-3">
+                            <label for="Attend" class="form-label">Attend Time</label>
+                            <input formControlName="attendTime"  type="time" class="form-control" id="Attend">
+                            <ng-container *ngIf="getAttend.touched ">
+                                <div *ngIf="getAttend.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                    Attend Time is required
+                                </div> 
+                            </ng-container>
+                        
+                        
+                        </div>  
+                    </div>
+                    <div class="col-8 offset-2">
+                        <div class="mb-3">
+                           <label for="Leave" class="form-label">Leave Time</label>
+                           <input formControlName="leaveTime"  type="time" class="form-control" id="Leave">
+                           <ng-container *ngIf="getLeave.touched ">
+                               <div *ngIf="getLeave.hasError('required')" class="alert alert-danger mt-2" id="errorName">
+                                   Leave Time is required
+                               </div> 
+                           </ng-container>
+                       
+                       </div>
+
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-outline-primary m-5">Edit Attendance</button>
+                        
+                    </div>  
+                </div>
+                </div>
+
+
+            </div>
+                
+        </form>
+        </div>
+</div>

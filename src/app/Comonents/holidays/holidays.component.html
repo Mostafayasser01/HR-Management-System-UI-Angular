@@ -1,0 +1,115 @@
+<section>
+    <div class="head-title">
+
+    </div>
+    <div class="table-data">
+      <div class="order">
+        <div class="head">
+          <h3 class="text-primary">Official vacations</h3>
+
+        </div>
+
+        <div class="container-fluid bg-light rounded-3 ">
+          <form [formGroup]="holidayForm" method="post" class="row">
+            <div class="row">
+
+
+              <div class="col-md-8 offset-2">
+                <!-- <div class="control-section">
+                  <div id="control_wrapper">
+                    <div id="container "> -->
+                      <label for="name" class="form-label">Vacation Name:</label>
+
+                <input type="text" id="name" formControlName="name" name="name" class="form-control" [(ngModel)]="name">
+                <ng-container *ngIf="getName.touched ">
+                  <div *ngIf="getName.hasError('required')" class="text-danger mt-2" id="errorName">
+                    vacation name is required
+                  </div>
+                  <div *ngIf="getName.hasError('minlength') " class="text-danger mt-2" id="errorName">
+                    vacation name must be more than 2 charctars Long
+                  </div>
+                  <div *ngIf="getName.hasError('maxlength') " class="text-danger mt-2" id="errorName">
+                    vacation name must be less than 50 charctars Long
+                  </div>
+                </ng-container>
+                  <br><br>
+                      <ejs-calendar  style="max-width: 100%;" (change)="onValueChange($event)"></ejs-calendar>
+                      <span id="selected">Selected Value: </span>
+                    <!-- </div>
+                  </div>
+                </div> -->
+              </div>
+
+              <!-- <div class="col-md-6 mt-5 text-center">
+                <label for="name" class="form-label">Vacation Name:</label>
+
+                <input type="text" id="name" formControlName="name" name="name" class="form-control" [(ngModel)]="name">
+                <ng-container *ngIf="getName.touched ">
+                  <div *ngIf="getName.hasError('required')" class="text-danger mt-2" id="errorName">
+                    vacation name is required
+                  </div>
+                  <div *ngIf="getName.hasError('minlength') " class="text-danger mt-2" id="errorName">
+                    vacation name must be more than 2 charctars Long
+                  </div>
+                  <div *ngIf="getName.hasError('maxlength') " class="text-danger mt-2" id="errorName">
+                    vacation name must be less than 50 charctars Long
+                  </div>
+                </ng-container>
+
+              </div> -->
+            </div>
+
+
+
+          </form>
+
+
+        </div>
+
+        <div class="text-center">
+
+          <button type="submit" (click)="AddOffDays($event)" class="btn btn-outline-primary  pe-5 ps-5">{{OffDayId !=0 ?
+            "Edit ":"Add "}}</button>
+
+        </div>
+
+        <div class="text-center d-flex justify-content-center mt-3">
+
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center" hidden> Id</th>
+              <th class="text-center"> Vacation Name</th>
+              <th class="text-center">Date</th>
+              <th class="text-center">Action</th>
+        
+        
+            </tr>
+          </thead>
+        
+          <tbody>
+            <tr *ngFor="let day of OffDays;">
+              <td hidden>{{day.Id}}</td>
+              <td>{{day.name}}</td>
+              <td>{{day.date}}</td>
+        
+              <td>
+                <i [routerLink]="['/Dashboard',{outlets: {content:['holidays',day.id,'edit']}}]" class="fs-5 text-info mx-1 bi bi-pencil-square"></i>
+                <i (click)="deleteProductHandler(day.id)" class="fs-5 text-danger mx-1 bi bi-trash3"></i>
+        
+              </td>
+            </tr>
+        
+          </tbody>
+        
+        </table>
+      </div>
+    </div>
+
+
+
+</section>
+
+

@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="row text-center bg-light rounded-3">
+
+    <div class="table-data">
+      <div class="order">
+        <div class="head">
+          <h3 class="text-primary">General Settings</h3>
+
+        </div>
+        <form [formGroup]="addSettings" (submit)="AddSetting($event)">
+          <div class="row">
+
+            <div class="col-8 offset-2">
+              <h4 class="text-center mb-3  ">Extras and discounts</h4>
+
+              <div class="mb-3 ">
+                <label for="unitUsed" class="form-label">Unit Used</label>
+                <select formControlName="unitUsed" class="form-select" aria-label="Default select example"
+                  name="unitUsed" id="unitUsed">
+                  <option value="Pound">Pound</option>
+                  <option value="Hour">Hour</option>
+                </select>
+
+                <ng-container *ngIf="GetunitUsed.touched ">
+                  <div *ngIf="GetunitUsed.hasError('required')" class="text-danger mt-2" id="errorName">
+                    Unit Used is required
+                  </div>
+                </ng-container>
+              </div>
+
+              <div class="mb-3">
+                <label for="bonus" class="form-label">Bonus</label>
+                <input type="number" formControlName="bonus" class="form-select" name="bonus" id="bonus"
+                  placeholder="Bouns by Hours Or Pounds">
+
+
+                <ng-container *ngIf="GetBonus.touched ">
+                  <div *ngIf="GetBonus.hasError('required')" class="text-danger mt-2" id="errorName">
+                    Bonus is required
+                  </div>
+                </ng-container>
+              </div>
+
+              <div class="mb-3">
+                <label for="discound" class="form-label">Deduction</label>
+                <input type="number" formControlName="discound" class="form-select" name="discound" id="discound"
+                  placeholder="Deduction by Hours Or Pounds">
+
+
+                <ng-container *ngIf="GetDiscound.touched ">
+                  <div *ngIf="GetDiscound.hasError('required')" class="text-danger mt-2" id="errorName">
+                    Deduction is required
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+
+            <div class="col-8 my-5 offset-2">
+              <h4 class="text-center mb-3 ">WeekEnd</h4>
+
+              <div class="input-group mb-3">
+                <label for="offDay1"> </label>
+
+                <select formControlName="offDay1" class="form-select" aria-label="Default select example" name="offDay1"
+                  id="offDay1">
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                </select>
+              </div>
+
+
+              <div class="input-group ">
+                <label for="offDay2"></label>
+
+                <select formControlName="offDay2" class="form-select" aria-label="Default select example" name="offDay2"
+                  id="offDay2">
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <div class="col-12">
+            <button class="btn btn-outline-primary px-5" type="submit">Edit </button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>

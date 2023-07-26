@@ -1,0 +1,87 @@
+<section>
+  <div class="container-fuild ">
+    <div class="row">
+      <div class="table-data">
+        <div class="order ">
+          <div class="head">
+            <h3 class="text-primary">Salary Report</h3>
+          </div>
+
+          <div class="row text-center">
+
+            <div class="col-9 offset-1  my-2">
+              <div class="mt-4">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="name" placeholder="Enter Employee's name"
+                  aria-label="Example text with button addon" aria-describedby="button-addon1">
+                
+              </div>
+            </div>
+           
+            
+            
+
+            <div class="col-4 offset-1  my-2">
+              <div class="mt-4">
+                <label for="From" class="form-label">From</label>
+
+                <input type="date" class="form-control" id="From" [(ngModel)]="Fromdate" placeholder=""
+                  aria-label="Example text with button addon" aria-describedby="button-addon1">
+              </div>
+            </div>
+            <div class="col-4 offset-1 my-2">
+              <div class=" mt-4">
+                <label for="To" class="form-label">To</label>
+
+                <input type="date" class="form-control  " id="To" placeholder="" [(ngModel)]="Todate"
+                  aria-label="Example text with button addon" aria-describedby="button-addon1">
+              </div>
+            </div>
+            <div class="col-12 text-center my-4">
+              <button class="btn btn-outline-primary" (click)="GetReport()">Search</button>
+            </div>
+          </div>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Basic salary</th>
+                <th scope="col">Attendance</th>
+                <th scope="col">Absence</th>
+                <th scope="col">Bonus</th>
+                <th scope="col">Deduction</th>
+                <th scope="col">Total Bonus</th>
+                <th scope="col">Total Deduction</th>
+                <th scope="col">Net Salary</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- <th scope="row">1</th> -->
+                <td>{{salaryReport.employeeName}}</td>
+                <td>{{salaryReport.departName}}</td>
+                <td>{{salaryReport.salary}}</td>
+                <td>{{salaryReport.attendanceDays}}</td>
+                <td>{{salaryReport.absentDays}}</td>
+                <td>{{salaryReport.bonusCount}}</td>
+                <td>{{salaryReport.discoundCount}}</td>
+                <td>{{salaryReport.totalBonus}}</td>
+                <td>{{salaryReport.totalDiscound}}</td>
+                <td>{{salaryReport.totalSalary}}</td>
+              </tr>
+
+
+
+            </tbody>
+
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

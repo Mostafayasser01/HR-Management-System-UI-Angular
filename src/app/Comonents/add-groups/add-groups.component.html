@@ -1,0 +1,126 @@
+<div class="container">
+
+  <div class="table-data">
+    <div class="order">
+      <div class="head">
+        <h3 class="text-primary">Add New Group</h3>
+
+      </div>
+    <div class="row bg-light rounded-3">
+        <form [formGroup]="AddGroup" (submit)="Save($event)" >
+            <div class="col-10 offset-1">
+                <div class="row text-center m-5">
+                    <div class="col-6 offset-2">
+                        <input type="text" class="form-control" id="groupName" placeholder="Group Name" formControlName="name">
+                        <ng-container *ngIf="getgroupName.touched ">
+                            <div *ngIf="getgroupName.hasError('required')" class="text-danger mt-2" id="errorName">
+                                Group Name is required
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" (click)="createRole()" class="btn btn-primary mb-3">Save</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-10 offset-1 my-5">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Page</th>
+                        <th scope="col">Show</th>
+                        <th scope="col">Add</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Page" >
+                          </div></th>
+                        <td>Add Employee</td>
+                        <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Show" >
+                          </div></td>
+                          <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Add">
+                          </div></td> <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Edit" >
+                          </div></td> <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Delete">
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Page" >
+                          </div></th>
+                        <td>Attend And Leave</td>
+                        <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Show" >
+                          </div></td>
+                          <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Add">
+                          </div></td> <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Edit" >
+                          </div></td> <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Delete">
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Page" >
+                          </div></th>
+                        <td colspan="">Setting</td>
+                        <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Show" >
+                          </div></td>
+                          <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Add">
+                          </div></td> <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Edit" >
+                          </div></td> <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Delete">
+                          </div></td>
+                      </tr>
+                
+                      <tr>
+                        <th scope="row"><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Page" >
+                          </div></th>
+                        <td colspan="">Payroll Report</td>
+                        <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Show" >
+                          </div></td>
+                          <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Add">
+                          </div></td> <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Edit" >
+                          </div></td> <td><div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Add" id="flexCheckChecked" name="Delete">
+                          </div></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </form>
+       
+        
+    </div>
+</div>
+
+ <!-- <form (submit)="createRole()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="name">
+
+      <label for="permissions">Permissions:</label>
+      <select multiple id="permissions" [(ngModel)]="selectedPermissions">
+        <option *ngFor="let permission of permissions" [value]="permission">{{ permission.name }}</option>
+      </select>
+
+      <button type="submit">Create Role</button>
+    </form> -->
